@@ -1,16 +1,12 @@
-import React from "react";
-import { createContext } from "react";
+import React, { createContext } from "react";
+import { GameContextType } from "../../@types";
 import { rollDice } from "../../utils";
 
 interface GameContextProviderProps {
   children: React.ReactNode;
 }
 
-// type GameContextType = {
-//   numberOfRu
-// };
-
-export const GameContext = createContext({});
+export const GameContext = createContext<GameContextType | null>(null);
 
 const GameContextProvider: React.FC<GameContextProviderProps> = ({
   children,

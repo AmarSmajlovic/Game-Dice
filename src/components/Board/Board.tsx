@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import { Cube } from "..";
+import { GameContextType } from "../../@types";
 import { GameContext } from "../../contexts";
-import { rollDice } from "../../utils";
 import "./styles.scss";
 
 const Board = () => {
   const { roll, numberToGet, rollNumber, classes } = useContext(
     GameContext
-  ) as any;
+  ) as GameContextType;
 
   return (
     <div className="container">
