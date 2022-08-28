@@ -1,12 +1,13 @@
-import React, { Dispatch, memo, SetStateAction } from "react";
+import React, { Dispatch, memo, SetStateAction, useContext } from "react";
+import { GameContext } from "../../contexts";
 import "./styles.scss";
 
 interface CubeProps {
-  setNumberToGet: Dispatch<SetStateAction<string | undefined>>;
   classCube?: string;
 }
 
-const Cube = ({ classCube, setNumberToGet }: CubeProps) => {
+const Cube = ({ classCube }: CubeProps) => {
+  const { setNumberToGet } = useContext(GameContext) as any;
   const getNumber = () => {
     setNumberToGet(classCube);
   };
