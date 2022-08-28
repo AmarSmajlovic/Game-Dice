@@ -1,4 +1,5 @@
-import React, { Dispatch, memo, SetStateAction, useContext } from "react";
+import React, { memo, useContext } from "react";
+import { GameContextType } from "../../@types";
 import { GameContext } from "../../contexts";
 import "./styles.scss";
 
@@ -7,7 +8,7 @@ interface CubeProps {
 }
 
 const Cube = ({ classCube }: CubeProps) => {
-  const { setNumberToGet } = useContext(GameContext) as any;
+  const { setNumberToGet } = useContext(GameContext) as GameContextType;
   const getNumber = () => {
     setNumberToGet(classCube);
   };
