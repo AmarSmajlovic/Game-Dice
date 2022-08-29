@@ -13,6 +13,9 @@ const Cube = ({ classCube }: CubeProps) => {
     setNumberToGet(classCube);
   };
 
+
+
+
   return (
     <div onClick={getNumber} className={`cube ${classCube}`}>
       <div className="cube__face cube__face--1">
