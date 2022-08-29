@@ -1,6 +1,7 @@
 import React, { createContext } from "react";
-import { GameContextType } from "../../@types";
-import { rollDice } from "../../utils";
+import { Class, CLASSES, GameContextType } from "../../@types";
+import { checkFinished, rollDice } from "../../utils";
+import rollDiceSound from "../../sounds/rollDiceSound.mp3";
 
 interface GameContextProviderProps {
   children: React.ReactNode;
@@ -15,29 +16,35 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
   const [numberToGet, setNumberToGet] = React.useState<string | undefined>(
     undefined
   );
-  const [classes, setClasses] = React.useState<string[]>(["", "", "","","","","","","",""]);
-
+  const [classes, setClasses] = React.useState<Class[]>(
+    Array.from(Array(CLASSES.NUMBER)).map(() => {
+      return { class: "", finished: false };
+    })
+  );
   const roll = () => {
     const arr = [...classes];
-    for (let i = 0; i < 10; i++) {
-      const number = rollDice(arr[i]);
-      if (arr[i] == numberToGet) {
-        arr[i] = numberToGet;
+    for (let i = 0; i < CLASSES.NUMBER; i++) {
+      const number = rollDice(arr[i].class);
+      if (arr[i].class == numberToGet) {
+        arr[i].class = numberToGet;
       } else {
-        arr[i] = number;
+        arr[i].class = number;
       }
     }
+    checkFinished(arr, numberToGet);
     setRollNumber((v: number) => v + 1);
     setClasses(arr);
+    const audio = new Audio(rollDiceSound);
+    audio.play();
     if (numberToGet) {
       setTimeout(() => handleWin(arr), 1000);
     }
   };
 
-  const handleWin = (arr: string[]) => {
-    const win = arr.every((v: string) => v === classes[0]);
+  const handleWin = (arr: Class[]) => {
+    const win = arr.every((v) => v.class == arr[0].class);
     if (win) {
-      alert("Win");
+      alert("pobjeda");
     }
   };
 

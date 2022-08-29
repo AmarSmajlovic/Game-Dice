@@ -1,1 +1,5 @@
-export * from './game';
+import { GameContextType } from "./game";
+
+export type {
+    GameContextType
+}

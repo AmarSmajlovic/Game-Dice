@@ -5,9 +5,22 @@
 };
 
 html{
-  font-size: 4px;
+  font-size:10px;
 }
 
 .container{
- padding:20rem;
+  margin:auto;
+  width:1140px;
+  height:100vh;
+  padding:2rem;
+}
+
+
+@media only screen and (max-width: 991px){
+  html{
+    font-size:7px;
+  }
+  .container{
+    width:100%;
+  }
 }
