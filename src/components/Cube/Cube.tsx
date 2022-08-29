@@ -20,7 +20,7 @@ const Cube = ({ classCube }: CubeProps) => {
     <div onClick={getNumber} className={`cube ${classCube}`}>
       <div className="cube__face cube__face--1">
         <div className="content">
-          <div className="cube__dot"></div>
+          <div className="cube__dot cube__dot__red"></div>
         </div>
       </div>
       <div className="cube__face cube__face--2">
@@ -50,7 +50,7 @@ const Cube = ({ classCube }: CubeProps) => {
           <div className="cube__dot "></div>
           <div className="cube__dot"></div>
           <div className="cube__dot"></div>
-          <div className="cube__dot cube__dot__center"></div>
+          <div className="cube__dot__red cube__dot__center"></div>
         </div>
       </div>
       <div className="cube__face cube__face--6">
