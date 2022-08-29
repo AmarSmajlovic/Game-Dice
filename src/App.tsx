@@ -5,7 +5,9 @@ import { GameContextProvider } from "./contexts";
 function App() {
   return (
     <GameContextProvider>
+      <div className="container">
       <Board />
+      </div>
     </GameContextProvider>
   );
 }
