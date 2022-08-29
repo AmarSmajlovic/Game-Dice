@@ -15,11 +15,11 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
   const [numberToGet, setNumberToGet] = React.useState<string | undefined>(
     undefined
   );
-  const [classes, setClasses] = React.useState<string[]>(["", "", ""]);
+  const [classes, setClasses] = React.useState<string[]>(["", "", "","","","","","","",""]);
 
   const roll = () => {
     const arr = [...classes];
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 10; i++) {
       const number = rollDice(arr[i]);
       if (arr[i] == numberToGet) {
         arr[i] = numberToGet;

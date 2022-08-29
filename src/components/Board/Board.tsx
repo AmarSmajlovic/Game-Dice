@@ -9,13 +9,12 @@ const Board = () => {
     GameContext
   ) as GameContextType;
 
+
   return (
     <div className="container">
-      {rollNumber}
-      {numberToGet}
-      <Cube classCube={classes[0]} />
-      <Cube classCube={classes[1]} />
-      <Cube classCube={classes[2]} />
+       {
+    Array.from(Array(10)).map((v,index:number) =>  <Cube classCube={classes[index]} />)
+  }
       <button onClick={roll}>roll</button>
     </div>
   );
