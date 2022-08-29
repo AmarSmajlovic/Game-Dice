@@ -1,21 +1,17 @@
 import React, { useContext } from "react";
-import { Cube } from "..";
-import { GameContextType } from "../../@types";
+import { DiceList } from "..";
+import { CLASSES, GameContextType } from "../../@types";
 import { GameContext } from "../../contexts";
 import "./styles.scss";
 
 const Board = () => {
-  const { roll, numberToGet, rollNumber, classes } = useContext(
-    GameContext
-  ) as GameContextType;
-
+  const { roll, rollNumber } = useContext(GameContext) as GameContextType;
 
   return (
     <div className="container">
-       {
-    Array.from(Array(10)).map((v,index:number) =>  <Cube classCube={classes[index]} />)
-  }
-      <button onClick={roll}>roll</button>
+      IT TOOK YOU:{rollNumber} ATTEMPT(S)
+      <DiceList dicesNumber={CLASSES.NUMBER} />
+      <button onClick={roll}>ROLL</button>
     </div>
   );
 };

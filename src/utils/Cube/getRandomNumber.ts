@@ -1,4 +1,4 @@
-import rollDiceSound from '../../sounds/rollDiceSound.mp3';
+import { Class } from "../../@types";
 
 export const getRandomNumber = (old:number,min:number,max:number) => {
 min = Math.ceil(min);
@@ -13,7 +13,13 @@ export const rollDice = (oldClass:string) => {
     const oldNumber = Number(oldClass.replace('show-',''));
     const randomNumber = getRandomNumber(oldNumber,1,6);
     const className = `show-${randomNumber}`;
-    const audio = new Audio(rollDiceSound)
-    audio.play();
     return className; 
+}
+
+export const checkFinished = (classes:Class[],checker:string | undefined) => {
+    for (let classN of classes) {
+        if (classN.class == checker) {
+          classN.finished = !classN.finished;
+        }
+      }
 }

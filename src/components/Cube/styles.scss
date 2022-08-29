@@ -125,6 +125,10 @@
     transform: translate(-50%,-50%);
   }
 
+ .finished{
+  background-color: rgb(1, 133, 1) !important;
+ }
+
   .cube__dot__red{
     width:5rem;
     height:5rem;
