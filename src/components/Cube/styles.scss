@@ -113,8 +113,9 @@
   .cube__dot{
     width:5rem;
     height:5rem;
-    background-color: red;
+    background-color: white;
     border-radius: 50%;
+    box-shadow: inset 0 0 0.5rem 0.3rem rgba($color: #000000, $alpha: .6);
   }
 
   .cube__dot__center{
@@ -122,4 +123,12 @@
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
+  }
+
+  .cube__dot__red{
+    width:5rem;
+    height:5rem;
+    background-color: red;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0.5rem 0.3rem rgba($color: #000000, $alpha: .6);
   }
