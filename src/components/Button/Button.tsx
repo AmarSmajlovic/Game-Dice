@@ -16,7 +16,7 @@ const Button = (props: Props) => {
     <button className={`button ${props.variant}`} {...props}>
       {props.children}
       {props.text && <p>{props.text}</p>}
-      {props.img && <img src={props.img} alt="Button Image" />}
+      {props.img && <img src={props.img} alt="btnicon" />}
     </button>
   );
 };

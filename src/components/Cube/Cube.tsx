@@ -29,7 +29,7 @@ const Cube = ({ classCube, finishedDice }: CubeProps) => {
     } else if (!finishedGame) {
       setFinished("");
     }
-  }, [classCube, numberToGet, finishedGame]);
+  }, [finishedGame, finishedDice]);
 
   return (
     <div onClick={getNumber} className={`cube ${classCube}`}>

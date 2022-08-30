@@ -5,7 +5,7 @@ min = Math.ceil(min);
 max = Math.ceil(max);
 const num = Math.floor(Math.random() * (max - min + 1)) + min;
 //Checking if old number is same like new one, in case user click roll and dice not changing.
-const final:any = num == old ? getRandomNumber(old,min,max) : num;
+const final:any = num === old ? getRandomNumber(old,min,max) : num;
 return final;
 }
 
@@ -18,7 +18,7 @@ export const rollDice = (oldClass:string) => {
 
 export const checkFinished = (classes:Class[],checker:string | undefined) => {
     for (let classN of classes) {
-        if (classN.class == checker) {
+        if (classN.class === checker) {
           classN.finished = true;
         }else{
           classN.finished = false;
