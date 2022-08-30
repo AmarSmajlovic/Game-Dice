@@ -10,7 +10,7 @@ interface CubeProps {
 }
 
 const Cube = ({ classCube, finishedDice }: CubeProps) => {
-  const { setNumberToGet, numberToGet, classes } = useContext(
+  const { setNumberToGet, numberToGet, classes, finishedGame } = useContext(
     GameContext
   ) as GameContextType;
   const [finished, setFinished] = React.useState<string>("");
@@ -24,10 +24,12 @@ const Cube = ({ classCube, finishedDice }: CubeProps) => {
   };
 
   React.useMemo(() => {
-    if (finishedDice) {
+    if (finishedDice && !finishedGame) {
       setFinished("finished");
+    } else if (!finishedGame) {
+      setFinished("");
     }
-  }, [classCube, numberToGet]);
+  }, [classCube, numberToGet, finishedGame]);
 
   return (
     <div onClick={getNumber} className={`cube ${classCube}`}>

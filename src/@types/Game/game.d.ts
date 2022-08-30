@@ -5,5 +5,7 @@ export type GameContextType = {
     rollNumber:number;
     numberToGet:string | undefined;
     setNumberToGet: React.Dispatch<React.SetStateAction<string | undefined>>,
-    roll: () => void;
+    roll: (setOpened:React.Dispatch<React.SetStateAction<boolean>>) => void;
+    resetGame:() => void;
+    finishedGame:boolean;
 }

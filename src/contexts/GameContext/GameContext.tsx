@@ -21,7 +21,9 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
       return { class: "", finished: false };
     })
   );
-  const roll = () => {
+  const [finishedGame, setFinishedGame] = React.useState<boolean>(false);
+
+  const roll = (setOpened: any) => {
     const arr = [...classes];
     for (let i = 0; i < CLASSES.NUMBER; i++) {
       const number = rollDice(arr[i].class);
@@ -37,20 +39,39 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
     const audio = new Audio(rollDiceSound);
     audio.play();
     if (numberToGet) {
-      setTimeout(() => handleWin(arr), 1000);
+      setTimeout(() => handleWin(arr, setOpened), 100);
     }
   };
 
-  const handleWin = (arr: Class[]) => {
+  const handleWin = (arr: Class[], setOpened: any) => {
     const win = arr.every((v) => v.class == arr[0].class);
     if (win) {
-      alert("pobjeda");
+      setFinishedGame((v) => (v = true));
+      setOpened((v: boolean) => (v = !v));
     }
+  };
+
+  const resetGame = () => {
+    for (let clas of classes) {
+      clas.class = "";
+      clas.finished = false;
+    }
+    setNumberToGet(undefined);
+    setRollNumber(0);
+    setFinishedGame((v) => (v = false));
   };
 
   return (
     <GameContext.Provider
-      value={{ roll, numberToGet, setNumberToGet, rollNumber, classes }}
+      value={{
+        roll,
+        numberToGet,
+        setNumberToGet,
+        rollNumber,
+        classes,
+        resetGame,
+        finishedGame,
+      }}
     >
       {children}
     </GameContext.Provider>

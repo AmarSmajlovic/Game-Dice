@@ -19,7 +19,9 @@ export const rollDice = (oldClass:string) => {
 export const checkFinished = (classes:Class[],checker:string | undefined) => {
     for (let classN of classes) {
         if (classN.class == checker) {
-          classN.finished = !classN.finished;
+          classN.finished = true;
+        }else{
+          classN.finished = false;
         }
       }
 }
