@@ -10,13 +10,12 @@ interface CubeProps {
 }
 
 const Cube = ({ classCube, finishedDice }: CubeProps) => {
-  const { setNumberToGet, numberToGet, classes, finishedGame } = useContext(
-    GameContext
-  ) as GameContextType;
+  const { setNumberToGet, numberToGet, classes, finishedGame, rollNumber } =
+    useContext(GameContext) as GameContextType;
   const [finished, setFinished] = React.useState<string>("");
 
   const getNumber = () => {
-    if (!numberToGet) {
+    if (!numberToGet && rollNumber > 0) {
       checkFinished(classes, classCube);
       setNumberToGet(classCube);
       setFinished("finished");

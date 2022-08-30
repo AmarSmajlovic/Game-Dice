@@ -10,7 +10,7 @@ const Modal = ({ children, show }: Props) => {
   return (
     <div className={`overlay ${show && "overlay__show"}`}>
       <div className={`modal__container ${show && "modal__show"}`}>
-        {children}
+        <div className="modal__content">{children}</div>
       </div>
     </div>
   );

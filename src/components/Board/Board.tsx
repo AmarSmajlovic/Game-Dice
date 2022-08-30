@@ -20,8 +20,8 @@ const Board = () => {
     <div className="container">
       <DiceList dicesNumber={CLASSES.NUMBER} />
       <Modal show={openedModal}>
-        <h1>{rollNumber}</h1>
-        <h1 onClick={reset}>close</h1>
+        <h1>YOU FINISHED GAME WITH {rollNumber} ATTEMPT(S)</h1>
+        <Button onClick={reset}>TRY AGAIN</Button>
       </Modal>
       <Button img={diceIcon} onClick={() => roll(setOpenedModal)} />
     </div>
