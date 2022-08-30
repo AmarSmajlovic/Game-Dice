@@ -1,0 +1,21 @@
+.button{
+    width:20rem;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    border:1px solid black;
+    border-radius: 1rem;
+    cursor:pointer;
+    transition: 0.5s;
+    img{
+        width:5rem;
+    }
+    &:hover{
+        opacity: .9;
+        transform: scale(1.03);
+    }
+}
+
+.primary{
+    background-color: green;
+}

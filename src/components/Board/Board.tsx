@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
-import { DiceList } from "..";
+import { Button, DiceList } from "..";
 import { CLASSES, GameContextType } from "../../@types";
+import { diceIcon } from "../../assets";
 import { GameContext } from "../../contexts";
 import "./styles.scss";
 
@@ -11,7 +12,7 @@ const Board = () => {
     <div className="container">
       IT TOOK YOU:{rollNumber} ATTEMPT(S)
       <DiceList dicesNumber={CLASSES.NUMBER} />
-      <button onClick={roll}>ROLL</button>
+      <Button  img={diceIcon} variant="primary" onClick={roll} />
     </div>
   );
 };

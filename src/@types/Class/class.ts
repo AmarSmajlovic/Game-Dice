@@ -4,5 +4,5 @@ export interface Class{
 }
 
 export enum CLASSES{
-  "NUMBER" = 3
+  "NUMBER" = 10
 }
