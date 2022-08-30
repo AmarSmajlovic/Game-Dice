@@ -27,7 +27,7 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
     const arr = [...classes];
     for (let i = 0; i < CLASSES.NUMBER; i++) {
       const number = rollDice(arr[i].class);
-      if (arr[i].class == numberToGet) {
+      if (arr[i].class === numberToGet) {
         arr[i].class = numberToGet;
       } else {
         arr[i].class = number;
@@ -44,7 +44,7 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
   };
 
   const handleWin = (arr: Class[], setOpened: any) => {
-    const win = arr.every((v) => v.class == arr[0].class);
+    const win = arr.every((v) => v.class === arr[0].class);
     if (win) {
       setFinishedGame((v) => (v = true));
       setOpened((v: boolean) => (v = !v));
