@@ -1,15 +1,15 @@
-import React, { useContext } from "react";
-import { GameContextType } from "../../@types";
-import { GameContext } from "../../contexts";
-import { Cube } from "../Cube";
-import "./styles.scss";
+import React, { useContext } from 'react'
+import { GameContextType } from '../../@types'
+import { GameContext } from '../../contexts'
+import { Cube } from '../Cube'
+import './styles.scss'
 
 interface Props {
-  dicesNumber: number;
+  dicesNumber: number
 }
 
 const DiceList = ({ dicesNumber }: Props) => {
-  const { classes } = useContext(GameContext) as GameContextType;
+  const { classes } = useContext(GameContext) as GameContextType
 
   return (
     <div className="dicesContainer">
@@ -21,7 +21,7 @@ const DiceList = ({ dicesNumber }: Props) => {
         />
       ))}
     </div>
-  );
-};
+  )
+}
 
-export default DiceList;
+export default DiceList

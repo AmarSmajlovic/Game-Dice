@@ -12,8 +12,12 @@ interface Props
 }
 
 const Button = (props: Props) => {
+  const getVariant = React.useMemo(() => {
+    return props.variant !== undefined ? props.variant : "";
+  }, [props.variant]);
+
   return (
-    <button className={`button ${props.variant}`} {...props}>
+    <button className={`button ${getVariant}`} {...props}>
       {props.children}
       {props.text && <p>{props.text}</p>}
       {props.img && <img src={props.img} alt="btnicon" />}
