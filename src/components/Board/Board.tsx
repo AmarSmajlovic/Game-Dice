@@ -1,29 +1,19 @@
-import React, { useContext } from 'react'
-import { Button, DiceList, Modal } from '..'
+import { useContext } from 'react'
+import { Button, DiceList } from '..'
 import { CLASSES, GameContextType } from '../../@types'
 import { diceIcon } from '../../assets'
 import { GameContext } from '../../contexts'
+import { ModalContext } from '../../contexts/ModalContext'
 import './styles.scss'
 
 const Board = () => {
-  const [openedModal, setOpenedModal] = React.useState<boolean>(false)
-  const { roll, rollNumber, resetGame } = useContext(
-    GameContext
-  ) as GameContextType
-
-  const reset = () => {
-    resetGame()
-    setOpenedModal(false)
-  }
+  const { showModal } = useContext(ModalContext) as any
+  const { roll } = useContext(GameContext) as GameContextType
 
   return (
     <div className="container">
       <DiceList dicesNumber={CLASSES.NUMBER} />
-      <Modal show={openedModal}>
-        <h1>YOU FINISHED GAME WITH {rollNumber} ATTEMPT(S)</h1>
-        <Button onClick={reset}>TRY AGAIN</Button>
-      </Modal>
-      <Button img={diceIcon} onClick={() => roll(setOpenedModal)} />
+      <Button img={diceIcon} onClick={() => roll(showModal)} />
     </div>
   )
 }

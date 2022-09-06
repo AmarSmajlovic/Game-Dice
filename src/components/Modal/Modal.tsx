@@ -2,15 +2,17 @@ import React from 'react'
 import './styles.scss'
 
 interface Props {
-  children: React.ReactNode
-  show: boolean
+  content: React.ElementType
+  props: {}
 }
 
-const Modal = ({ children, show }: Props) => {
+const Modal = ({ content, props }: Props) => {
+  const Content = content
+
   return (
-    <div className={`overlay ${show && 'overlay__show'}`}>
-      <div className={`modal__container ${show && 'modal__show'}`}>
-        <div className="modal__content">{children}</div>
+    <div className="modal">
+      <div className="modal-content">
+        <Content {...props} />
       </div>
     </div>
   )
