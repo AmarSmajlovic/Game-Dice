@@ -2,6 +2,7 @@ import React, { createContext } from "react";
 import { Class, CLASSES, GameContextType } from "../../@types";
 import { checkFinished, rollDice } from "../../utils";
 import rollDiceSound from "../../sounds/rollDiceSound.mp3";
+import { FinishGameModal } from "../../modals";
 
 interface GameContextProviderProps {
   children: React.ReactNode;
@@ -23,7 +24,7 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
   );
   const [finishedGame, setFinishedGame] = React.useState<boolean>(false);
 
-  const roll = (setOpened: any) => {
+  const roll = (showModal: any) => {
     const arr = [...classes];
     for (let i = 0; i < CLASSES.NUMBER; i++) {
       const number = rollDice(arr[i].class);
@@ -39,19 +40,19 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
     const audio = new Audio(rollDiceSound);
     audio.play();
     if (numberToGet) {
-      setTimeout(() => handleWin(arr, setOpened), 100);
+      setTimeout(() => handleWin(arr, showModal), 100);
     }
   };
 
-  const handleWin = (arr: Class[], setOpened: any) => {
+  const handleWin = (arr: Class[], showModal: any) => {
     const win = arr.every((v) => v.class === arr[0].class);
     if (win) {
       setFinishedGame((v) => (v = true));
-      setOpened((v: boolean) => (v = !v));
+      showModal(FinishGameModal);
     }
   };
 
-  const resetGame = () => {
+  const resetGame = (hideModal: any) => {
     for (let clas of classes) {
       clas.class = "";
       clas.finished = false;
@@ -59,6 +60,7 @@ const GameContextProvider: React.FC<GameContextProviderProps> = ({
     setNumberToGet(undefined);
     setRollNumber(0);
     setFinishedGame((v) => (v = false));
+    hideModal();
   };
 
   return (
