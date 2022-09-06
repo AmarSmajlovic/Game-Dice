@@ -1,8 +1,8 @@
 export interface Class{
-    class:string;
-    finished:boolean
+  class: string
+  finished: boolean
 }
 
 export enum CLASSES{
-  "NUMBER" = 10
+  'NUMBER' = 10
 }

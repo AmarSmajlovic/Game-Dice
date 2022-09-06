@@ -1,5 +1,5 @@
-import diceIcon from './diceIcon.png';
+import diceIcon from './diceIcon.png'
 
 export {
-    diceIcon
+  diceIcon
 }
