@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 import { GameContextType } from '../../@types'
 import { GameContext } from '../../contexts'
 import { Cube } from '../Cube'

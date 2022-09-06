@@ -1,5 +1,5 @@
-import Cube from "./Cube";
+import Cube from './Cube'
 
 export {
-    Cube
+  Cube
 }
