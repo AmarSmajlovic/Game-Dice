@@ -1,1 +1,1 @@
-export * from './Cube';
+export * from './Cube'

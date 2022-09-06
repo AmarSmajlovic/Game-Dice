@@ -1,13 +1,13 @@
-import React from "react";
-import "./styles.scss";
+import React from 'react'
+import './styles.scss'
 
 interface Props {
-  content: React.ElementType;
-  props: {};
+  content: React.ElementType
+  props: {}
 }
 
 const Modal = ({ content, props }: Props) => {
-  const Content = content;
+  const Content = content
 
   return (
     <div className="modal">
@@ -15,7 +15,7 @@ const Modal = ({ content, props }: Props) => {
         <Content {...props} />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Modal;
+export default Modal

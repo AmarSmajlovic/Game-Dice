@@ -1,2 +1,2 @@
-export * from './GameContext';
-export * from './ModalContext';
+export * from './GameContext'
+export * from './ModalContext'

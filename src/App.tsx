@@ -1,18 +1,15 @@
-import "./styles/App.scss";
-import { Board } from "./components";
-import { GameContextProvider } from "./contexts";
-import ModalContextProvider from "./contexts/ModalContext/ModalContext";
+import './styles/App.scss'
+import { Board } from './components'
+import { GameContextProvider } from './contexts'
 
-function App() {
+function App () {
   return (
     <GameContextProvider>
-      <ModalContextProvider>
-        <div className="container">
-          <Board />
-        </div>
-      </ModalContextProvider>
+      <div className="container">
+      <Board />
+      </div>
     </GameContextProvider>
-  );
+  )
 }
 
-export default App;
+export default App

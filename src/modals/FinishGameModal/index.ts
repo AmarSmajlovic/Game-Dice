@@ -1,5 +1,5 @@
-import FinishGameModal from "./FinishGameModal";
+import FinishGameModal from './FinishGameModal'
 
 export {
-    FinishGameModal
+  FinishGameModal
 }

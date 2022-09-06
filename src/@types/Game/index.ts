@@ -1,5 +1,5 @@
-import { GameContextType } from "./game";
+import { GameContextType } from './game'
 
 export type {
-    GameContextType
+  GameContextType
 }

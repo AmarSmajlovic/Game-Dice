@@ -1,34 +1,34 @@
-import React, { memo, useContext } from "react";
-import { GameContextType } from "../../@types";
-import { GameContext } from "../../contexts";
-import { checkFinished } from "../../utils";
-import "./styles.scss";
+import React, { memo, useContext } from 'react'
+import { GameContextType } from '../../@types'
+import { GameContext } from '../../contexts'
+import { checkFinished } from '../../utils'
+import './styles.scss'
 
 interface CubeProps {
-  classCube?: string;
-  finishedDice?: boolean;
+  classCube?: string
+  finishedDice?: boolean
 }
 
 const Cube = ({ classCube, finishedDice }: CubeProps) => {
   const { setNumberToGet, numberToGet, classes, finishedGame, rollNumber } =
-    useContext(GameContext) as GameContextType;
-  const [finished, setFinished] = React.useState<string>("");
+    useContext(GameContext) as GameContextType
+  const [finished, setFinished] = React.useState<string>('')
 
   const getNumber = () => {
     if (!numberToGet && rollNumber > 0) {
-      checkFinished(classes, classCube);
-      setNumberToGet(classCube);
-      setFinished("finished");
+      checkFinished(classes, classCube)
+      setNumberToGet(classCube)
+      setFinished('finished')
     }
-  };
+  }
 
   React.useMemo(() => {
     if (finishedDice && !finishedGame) {
-      setFinished("finished");
+      setFinished('finished')
     } else if (!finishedGame) {
-      setFinished("");
+      setFinished('')
     }
-  }, [finishedGame, finishedDice]);
+  }, [finishedGame, finishedDice])
 
   return (
     <div onClick={getNumber} className={`cube ${classCube}`}>
@@ -78,7 +78,7 @@ const Cube = ({ classCube, finishedDice }: CubeProps) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default memo(Cube);
+export default memo(Cube)

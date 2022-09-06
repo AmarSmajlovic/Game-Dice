@@ -1,5 +1,5 @@
-import DiceList from "./DiceList";
+import DiceList from './DiceList'
 
 export {
-    DiceList
+  DiceList
 }

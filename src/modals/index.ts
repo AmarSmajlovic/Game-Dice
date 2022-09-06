@@ -1,1 +1,1 @@
-export * from './FinishGameModal';
+export * from './FinishGameModal'
