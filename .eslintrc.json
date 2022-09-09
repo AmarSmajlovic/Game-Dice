@@ -6,7 +6,8 @@
     "extends": [
         "plugin:react/recommended",
         "plugin:react/jsx-runtime",
-        "standard-with-typescript"
+        "standard-with-typescript",
+        "prettier"
     ],
     "overrides": [
     ],
@@ -15,10 +16,9 @@
         "sourceType": "module",
         "project": ["tsconfig.json"]
     },
-    "plugins": [
-        "react"
-    ],
+    "plugins": ["prettier"],
     "rules": {
+        "prettier/prettier": "error",
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/strict-boolean-expressions" : 0,
         "@typescript-eslint/restrict-template-expressions": 0,
