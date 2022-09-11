@@ -1,5 +1,5 @@
 export * from './Cube'
-export * from './Board'
+export * from '../pages/GameScreen/Board'
 export * from './DiceList'
 export * from './Button'
 export * from './Modal'
