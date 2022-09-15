@@ -9,7 +9,7 @@ const Routes = () => {
     <BrowserRouter>
       <ReactRoutes>
         <Route element={<AuthRoute />}>
-          <Route path="/game" element={<Board />} />
+          <Route path="/" element={<Board />} />
         </Route>
         <Route path="/login" element={<LoginScreen />} />
       </ReactRoutes>
