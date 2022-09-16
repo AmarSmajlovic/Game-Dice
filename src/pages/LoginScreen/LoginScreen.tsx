@@ -9,7 +9,7 @@ const LoginScreen = () => {
 
   const handleLogin = () => {
     login();
-    navigate("/game");
+    navigate("/");
   };
 
   return <div onClick={handleLogin}>login</div>;
