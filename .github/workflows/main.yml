@@ -1,11 +1,19 @@
-name: main
+name: Development
 
-on: push
+on:
+  push:
+    branches:
+      - master
 
 jobs:
-  super-lint:
-    name: Lint code base
+  build:
+    name: Build and publish
     runs-on: ubuntu-latest
+    env:
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -13,10 +21,10 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-          
       - run: npm install
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
           cache: 'npm'
+      - run: npm run build
