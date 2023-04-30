@@ -19,9 +19,3 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
-      - run: npm run build:dev
-
-      - uses: lbertenasco/s3-deploy@v1
-        with:
-            folder: build
-            invalidation: / *
