@@ -6,16 +6,17 @@ jobs:
   super-lint:
     name: Lint code base
     runs-on: ubuntu-latest
-   steps:
+    steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: "npm"
+
       - run: npm install
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: "npm"
