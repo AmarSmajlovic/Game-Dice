@@ -16,8 +16,6 @@ const Button = (props: Props) => {
     return props.variant !== undefined ? props.variant : "";
   }, [props.variant]);
 
-  console.log("jedan");
-
   return (
     <button className={`button ${getVariant}`} {...props}>
       {props.children}

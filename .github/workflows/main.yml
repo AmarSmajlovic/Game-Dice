@@ -1,25 +1,21 @@
-name: Development
+name: main
 
-on:
-  push:
-    branches:
-      - master
+on: push
 
 jobs:
-  build:
-    name: Build and publish
+  super-lint:
+    name: Lint code base
     runs-on: ubuntu-latest
-    steps:
+   steps:
       - uses: actions/checkout@v2
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: "npm"
+          cache: 'npm'
       - run: npm install
 
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: "npm"
-      - run: npm run build
+          cache: 'npm'
