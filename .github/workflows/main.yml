@@ -21,3 +21,6 @@ jobs:
           node-version: 16
           cache: "npm"
       - run: npm run build
+      - run: npm run lint
+        env:
+          CI: true
